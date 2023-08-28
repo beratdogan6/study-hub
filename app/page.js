@@ -9,7 +9,7 @@ export default function Home() {
     <main>
       <div className='h-screen w-full fixed top-0 left-0 z-0'>
         <img
-          src='/785502.gif'
+          src='/2471316.gif'
           alt='Image'
           layout='fill'
           style={{ objectFit: 'cover', width: '100%', height: '100%' }}

@@ -29,7 +29,7 @@ function Clock() {
   return (
     <div className="font-roboto">
       <Draggable>
-        <section className='text-white w-[400px] h-[153px] cursor-move'>
+        <section className='text-white w-[400px] h-fit cursor-move'>
           <div>
             <div className='flex justify-between w-full font-medium text-[25px]'>
               <p>{timeOfDay}</p>
