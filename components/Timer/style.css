@@ -1,0 +1,78 @@
+.timer2-container {
+    @apply
+    bg-black 
+    bg-opacity-20
+    text-white
+    cursor-move
+    h-fit
+    w-fit
+    rounded-lg
+    px-20
+    py-8
+    flex
+    flex-col
+    items-center
+    justify-center
+}
+
+.timer2-container:hover {
+    @apply
+    bg-opacity-30
+}
+
+.timer2-container:active {
+    @apply
+    bg-opacity-40
+}
+
+.timer2-container p {
+    @apply
+    text-4xl
+    font-bold
+    text-center
+    w-full
+    h-full
+    mt-5
+}
+
+.timer2-container button {
+    @apply
+    text-2xl
+    font-bold
+    text-center
+    w-full
+    h-full
+    border-none
+    outline-none
+    cursor-pointer
+    px-[12px]
+    py-[6px]
+    bg-[rgba(0,0,0,0.3)]
+    rounded-lg
+    text-black
+}
+
+.timer2-container button:disabled {
+    @apply
+    cursor-not-allowed
+    bg-[rgba(53,53,53,0.3)]
+    text-[rgb(41,41,41)]
+}
+
+.timer2-container button:hover:not(:disabled) {
+    @apply
+    transition-colors
+    bg-[rgba(255,255,255,1)]
+}
+
+.timer2-container .buttons {
+    @apply
+    flex
+    flex-row
+    gap-2
+    items-center
+    justify-center
+    w-full
+    h-full
+    mt-5
+}

@@ -16,9 +16,8 @@ function Clock() {
     };
   }, []);
 
-  const hours = time.getHours();
-  const minutes = time.getMinutes();
-  const seconds = time.getSeconds();
+  const hours = time.getHours() < 10 ? '0' + time.getHours() : time.getHours();
+  const minutes = time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes();
   const day = time.getDay();
   const dayFormat = day === 0 ? 'Pazar' : day === 1 ? 'Pazartesi' : day === 2 ? 'Salı' : day === 3 ? 'Çarşamba' : day === 4 ? 'Perşembe' : day === 5 ? 'Cuma' : 'Cumartesi';
   const date = time.getDate();
@@ -27,15 +26,16 @@ function Clock() {
   const timeOfDay = 22 <= hours && hours < 5 ? 'İyi Geceler' : 5 <= hours && hours < 12 ? 'Günaydınlar' : 12 <= hours && hours < 17 ? 'Tünaydınlar' : 'İyi Akşamlar';
 
   return (
-    <div className="font-roboto">
-      <Draggable>
+    <div className="font-poppins">
+      <Draggable
+        defaultPosition={{ x: 100, y: 750 }}>
         <section className='text-white w-[400px] h-fit cursor-move'>
           <div>
             <div className='flex justify-between w-full font-medium text-[25px]'>
               <p>{timeOfDay}</p>
               <p>{hours}:{minutes}</p>
             </div>
-            <p className='text-[19px]'>Bugün {dayFormat}, {monthFormat} {date}</p>
+            <p className='text-[19px]'>Bugün {dayFormat}, {date} {monthFormat}</p>
           </div>
         </section>
       </Draggable>
