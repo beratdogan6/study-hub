@@ -11,7 +11,7 @@ const Timer = () => {
     return `${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
   };
 
-  const [time, setTime] = useState(1 * 60);
+  const [time, setTime] = useState(25 * 60);
   const [formattedTime, setFormattedTime] = useState(`${formatTime(time)}`);
   const [intervalId, setIntervalId] = useState(null);
   const [isRunning, setIsRunning] = useState(false);
