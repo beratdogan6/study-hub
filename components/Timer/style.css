@@ -1,4 +1,15 @@
-.timer2-container {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.timer2-container-active {
     @apply
     bg-black 
     bg-opacity-20
@@ -15,17 +26,34 @@
     justify-center
 }
 
-.timer2-container:hover {
+.timer2-container-disabled {
+    @apply
+    bg-black 
+    bg-opacity-20
+    text-white
+    cursor-move
+    h-fit
+    w-fit
+    rounded-lg
+    px-20
+    py-8
+    hidden
+    flex-col
+    items-center
+    justify-center
+}
+
+.timer2-container-active:hover {
     @apply
     bg-opacity-30
 }
 
-.timer2-container:active {
+.timer2-container-active:active {
     @apply
     bg-opacity-40
 }
 
-.timer2-container p {
+.timer2-container-active p {
     @apply
     text-4xl
     font-bold
@@ -35,7 +63,7 @@
     mt-5
 }
 
-.timer2-container button {
+.timer2-container-active button {
     @apply
     text-2xl
     font-bold
@@ -52,20 +80,20 @@
     text-black
 }
 
-.timer2-container button:disabled {
+.timer2-container-active button:disabled {
     @apply
     cursor-not-allowed
     bg-[rgba(53,53,53,0.3)]
     text-[rgb(41,41,41)]
 }
 
-.timer2-container button:hover:not(:disabled) {
+.timer2-container-active button:hover:not(:disabled) {
     @apply
     transition-colors
     bg-[rgba(255,255,255,1)]
 }
 
-.timer2-container .buttons {
+.timer2-container-active .buttons {
     @apply
     flex
     flex-row
@@ -75,4 +103,103 @@
     w-full
     h-full
     mt-5
+}
+
+.timer-settings {
+    @apply
+    bg-black 
+    bg-opacity-20
+    text-white
+    cursor-move
+    h-fit
+    w-fit
+    rounded-lg
+    px-20
+    py-8
+    hidden
+    flex-col
+    gap-2
+    items-center
+    justify-center
+}
+
+.timer-settings-active {
+    @apply
+    bg-black 
+    bg-opacity-20
+    text-white
+    cursor-move
+    h-fit
+    w-fit
+    rounded-lg
+    px-20
+    py-8
+    flex
+    flex-col
+    gap-2
+    items-center
+    justify-center
+}
+
+.timer-settings-active:hover {
+    @apply
+    bg-opacity-30
+}
+
+.timer-settings-active:active {
+    @apply
+    bg-opacity-40
+}
+
+.timer-settings-active p {
+    @apply
+    text-4xl
+    font-bold
+    text-center
+    w-full
+    h-full
+    mt-5
+}
+
+.timer-settings-active button {
+    @apply
+    text-2xl
+    font-bold
+    text-center
+    w-full
+    h-full
+    border-none
+    outline-none
+    cursor-pointer
+    px-[12px]
+    py-[6px]
+    bg-[rgba(0,0,0,0.3)]
+    rounded-lg
+    text-white
+    mt-3
+}
+
+.timer-settings-active button:disabled {
+    @apply
+    cursor-not-allowed
+    bg-[rgba(53,53,53,0.3)]
+    text-[rgb(41,41,41)]
+}
+
+.timer-settings-active input {
+    @apply
+    text-2xl
+    font-bold
+    text-center
+    border-none
+    outline-none
+    cursor-text
+    ml-5
+    px-[12px]
+    py-[3px]
+    w-fit
+    max-w-[200px]
+    bg-[rgba(0,0,0,0.3)]
+    rounded-lg
+    text-white
 }

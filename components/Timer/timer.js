@@ -8,11 +8,12 @@ class Timer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      studyTime: 25,
-      breakTime: 10, 
-      currentTime: 25 * 60,
+      studyTime: 1,
+      breakTime: 2,
+      currentTime: 1 * 60,
       isRunning: false,
       isBreakTime: false,
+      settings: false,
     };
   }
 
@@ -77,8 +78,22 @@ class Timer extends Component {
     this.setState({ breakTime: event.target.value });
   };
 
+  settings = () => {
+    this.setState({ settings: !this.state.settings });
+  }
+
+  resetTimerSettings = () => {
+    clearInterval(this.timerInterval);
+    this.setState({
+      currentTime: this.state.studyTime * 60,
+      isRunning: false,
+      isBreakTime: false,
+      settings: false,
+    });
+  }
+
   render() {
-    const { currentTime, studyTime, breakTime, isRunning, isBreakTime } = this.state;
+    const { currentTime, studyTime, breakTime, isRunning, isBreakTime, settings } = this.state;
 
     const formatTime = (timeInSeconds) => {
       const minutes = Math.floor(timeInSeconds / 60);
@@ -90,31 +105,44 @@ class Timer extends Component {
       <div>
         <Draggable
           defaultPosition={{ x: 750, y: 300 }}>
-          <div className='timer2-container'>
-            <h1>{isBreakTime ? 'BREAK TIME' : 'STUDY TIME'}</h1>
-            <p>{formatTime(currentTime)}</p>
-            <div className='buttons'>
-              <button onClick={this.startTimer} disabled={isRunning}>Start</button>
-              <button onClick={this.pauseTimer} disabled={!isRunning}>Pause</button>
-              <button onClick={this.resetTimer}>Reset</button>
+          <div>
+            {/* TIMER */}
+            <div className={settings ? 'timer2-container-disabled' : 'timer2-container-active'}>
+              <h1>{isBreakTime ? 'BREAK TIME' : 'STUDY TIME'}</h1>
+              <p>{formatTime(currentTime)}</p>
+              <div className='buttons'>
+                <button onClick={this.startTimer} disabled={isRunning}>Start</button>
+                <button onClick={this.pauseTimer} disabled={!isRunning}>Pause</button>
+                <button onClick={this.resetTimer}>Reset</button>
+              </div>
+              <div className='buttons'>
+                <button onClick={this.settings}>Settings</button>
+              </div>
+            </div>
+
+            {/* SETTINGS */}
+            <div className={settings ? 'timer-settings-active' : 'timer-settings'}>
+              <div>
+                <label>Study Time (minutes):</label>
+                <input
+                  type="number"
+                  value={studyTime}
+                  onChange={this.handleStudyTimeChange}
+                  className='text-black'
+                />
+              </div>
+              <div>
+                <label>Break Time (minutes):</label>
+                <input
+                  type="number"
+                  value={breakTime}
+                  onChange={this.handleBreakTimeChange}
+                  className='text-black'
+                />
+              </div>
+              <button onClick={this.resetTimerSettings}>Reset</button>
             </div>
           </div>
-          {/* <div>
-            <label>Study Time (minutes):</label>
-            <input
-              type="number"
-              value={studyTime}
-              onChange={this.handleStudyTimeChange}
-            />
-          </div>
-          <div>
-            <label>Break Time (minutes):</label>
-            <input
-              type="number"
-              value={breakTime}
-              onChange={this.handleBreakTimeChange}
-            />
-          </div> */}
         </Draggable>
       </div>
     );
