@@ -1,7 +1,7 @@
 "use client";
 
 import Clock from '@/components/Clock/clock'
-import Timer2 from '@/components/Timer/timer'
+import Timer from '@/components/Timer/timer'
 import Image from 'next/image'
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
       </div>
       <div className='z-10 absolute'>
         <Clock />
-        <Timer2 />
+        <Timer />
       </div>
     </main>
   )
