@@ -36,7 +36,7 @@ const ToDoList = () => {
 
   return (
     <Draggable
-      defaultPosition={{ x: 100, y: 750 }}>
+      defaultPosition={{ x: 1420, y: -300 }}>
       <div className="todoMain">
         <h3 className='todoMain__title'>ToDo List</h3>
         <ul className='todoMain__list'>
