@@ -2,6 +2,7 @@
 
 import Clock from '@/components/Clock/clock'
 import Timer from '@/components/Timer/timer'
+import ToDoList from '@/components/ToDoList/ToDoList';
 import Image from 'next/image'
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <div className='z-10 absolute'>
         <Clock />
         <Timer />
+        <ToDoList />
       </div>
     </main>
   )

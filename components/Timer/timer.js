@@ -102,49 +102,47 @@ class Timer extends Component {
     };
 
     return (
-      <div>
-        <Draggable
-          defaultPosition={{ x: 750, y: 300 }}>
-          <div>
-            {/* TIMER */}
-            <div className={settings ? 'timer2-container-disabled' : 'timer2-container-active'}>
-              <h1>{isBreakTime ? 'BREAK TIME' : 'STUDY TIME'}</h1>
-              <p>{formatTime(currentTime)}</p>
-              <div className='buttons'>
-                <button onClick={this.startTimer} disabled={isRunning}>Start</button>
-                <button onClick={this.pauseTimer} disabled={!isRunning}>Pause</button>
-                <button onClick={this.resetTimer}>Reset</button>
-              </div>
-              <div className='buttons'>
-                <button onClick={this.settings}>Settings</button>
-              </div>
+      <Draggable
+        defaultPosition={{ x: 750, y: 300 }}>
+        <div>
+          {/* TIMER */}
+          <div className={settings ? 'timer2-container-disabled' : 'timer2-container-active'}>
+            <h1>{isBreakTime ? 'BREAK TIME' : 'STUDY TIME'}</h1>
+            <p>{formatTime(currentTime)}</p>
+            <div className='buttons'>
+              <button onClick={this.startTimer} disabled={isRunning}>Start</button>
+              <button onClick={this.pauseTimer} disabled={!isRunning}>Pause</button>
+              <button onClick={this.resetTimer}>Reset</button>
             </div>
-
-            {/* SETTINGS */}
-            <div className={settings ? 'timer-settings-active' : 'timer-settings'}>
-              <div>
-                <label>Study Time (minutes):</label>
-                <input
-                  type="number"
-                  value={studyTime}
-                  onChange={this.handleStudyTimeChange}
-                  className='text-black'
-                />
-              </div>
-              <div>
-                <label>Break Time (minutes):</label>
-                <input
-                  type="number"
-                  value={breakTime}
-                  onChange={this.handleBreakTimeChange}
-                  className='text-black'
-                />
-              </div>
-              <button onClick={this.resetTimerSettings}>Reset</button>
+            <div className='buttons'>
+              <button onClick={this.settings}>Settings</button>
             </div>
           </div>
-        </Draggable>
-      </div>
+
+          {/* SETTINGS */}
+          <div className={settings ? 'timer-settings-active' : 'timer-settings'}>
+            <div>
+              <label>Study Time (minutes):</label>
+              <input
+                type="number"
+                value={studyTime}
+                onChange={this.handleStudyTimeChange}
+                className='text-black'
+              />
+            </div>
+            <div>
+              <label>Break Time (minutes):</label>
+              <input
+                type="number"
+                value={breakTime}
+                onChange={this.handleBreakTimeChange}
+                className='text-black'
+              />
+            </div>
+            <button onClick={this.resetTimerSettings}>Reset</button>
+          </div>
+        </div>
+      </Draggable>
     );
   }
 };

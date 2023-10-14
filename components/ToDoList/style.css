@@ -1,0 +1,140 @@
+.todoMain {
+    @apply
+    bg-black 
+    bg-opacity-20
+    text-white
+    cursor-move
+    h-fit
+    w-fit
+    rounded-lg
+    px-10
+    py-8
+    flex
+    flex-col
+    items-center
+    justify-center
+}
+
+.todoMain__title {
+    @apply
+    text-2xl
+    font-bold
+    mb-4
+}
+
+.todoMain__list__item {
+    @apply
+    w-full
+    flex
+    items-center
+    justify-start
+    mb-4
+}
+
+.todoMain__list__item-done {
+    @apply
+    w-full
+    flex
+    items-center
+    justify-start
+    mb-4
+}
+
+.todoMain__list__item-done__checkbox {
+    @apply
+    w-5
+    h-5
+    rounded-full
+    border-2
+    border-white
+    mr-4
+    cursor-pointer
+}
+
+.todoMain__list__item-done__title {
+    @apply
+    text-lg
+    mr-4
+    w-[300px]
+    line-through
+    opacity-75
+}
+
+.todoMain__list {
+    @apply
+    w-full
+    flex
+    flex-col
+    items-center
+    justify-center
+}
+
+.todoMain__list__item__checkbox {
+    @apply
+    w-5
+    h-5
+    rounded-full
+    border-2
+    border-white
+    mr-4
+    cursor-pointer
+}
+
+.todoMain__list__item__title {
+    @apply
+    text-lg
+    mr-4
+    w-[300px]
+}
+
+.todoMain__list__item__edit {
+    @apply
+    w-5
+    h-5
+    text-white
+    mx-2
+    cursor-pointer
+}
+
+.todoMain__list__item__delete {
+    @apply
+    w-5
+    h-5
+    text-white
+    cursor-pointer
+}
+
+.todoMain__add {
+    @apply
+    w-full
+    flex
+    items-center
+    justify-start
+    my-3
+}
+
+.todoMain__add__input {
+    @apply
+    w-[70%]
+    mr-2
+    px-2
+    text-white
+    bg-white
+    bg-opacity-30
+}
+
+.todoMain__add__input:focus {
+    @apply
+    outline-none
+}
+
+.todoMain__add__button {
+    @apply
+    w-[30%]
+    justify-end
+    px-2
+    text-white
+    bg-white
+    bg-opacity-30
+    cursor-pointer
+}

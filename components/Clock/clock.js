@@ -26,20 +26,18 @@ function Clock() {
   const timeOfDay = 22 <= hours && hours < 5 ? 'İyi Geceler' : 5 <= hours && hours < 12 ? 'Günaydınlar' : 12 <= hours && hours < 17 ? 'Tünaydınlar' : 'İyi Akşamlar';
 
   return (
-    <div className="font-poppins">
-      <Draggable
-        defaultPosition={{ x: 100, y: 750 }}>
-        <section className='text-white w-[400px] h-fit cursor-move'>
-          <div>
-            <div className='flex justify-between w-full font-medium text-[25px]'>
-              <p>{timeOfDay}</p>
-              <p>{hours}:{minutes}</p>
-            </div>
-            <p className='text-[19px]'>Bugün {dayFormat}, {date} {monthFormat}</p>
+    <Draggable
+      defaultPosition={{ x: 100, y: 750 }}>
+      <section className='text-white w-[400px] h-fit cursor-move'>
+        <div>
+          <div className='flex justify-between w-full font-medium text-[25px]'>
+            <p>{timeOfDay}</p>
+            <p>{hours}:{minutes}</p>
           </div>
-        </section>
-      </Draggable>
-    </div>
+          <p className='text-[19px]'>Bugün {dayFormat}, {date} {monthFormat}</p>
+        </div>
+      </section>
+    </Draggable>
   )
 }
 
