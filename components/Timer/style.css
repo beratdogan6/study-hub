@@ -91,6 +91,7 @@ input[type=number] {
     @apply
     transition-colors
     bg-[rgba(255,255,255,1)]
+    text-black
 }
 
 .timer2-container-active .buttons {
@@ -175,8 +176,11 @@ input[type=number] {
     py-[6px]
     bg-[rgba(0,0,0,0.3)]
     rounded-lg
-    text-white
     mt-3
+}
+
+.timer2-container-active button {
+    color: rgb(209, 209, 209)
 }
 
 .timer-settings-active button:disabled {

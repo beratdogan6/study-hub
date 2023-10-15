@@ -18,8 +18,8 @@ export default function Home() {
       </div>
       <div className='z-10 absolute'>
         <Clock />
-        <Timer />
         <ToDoList />
+        <Timer />
       </div>
     </main>
   )

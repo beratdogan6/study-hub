@@ -11,18 +11,20 @@ const ToDoList = () => {
     {
       key: 1,
       isDone: 0,
-      text: 'pazara gidip 5kg salatalık alınacak'
+      text: 'pazara gidip 5kg salatalık al'
     },
     {
       key: 2,
       isDone: 1,
-      text: 'mesela bana içerisinde çok fazla kelime bulunan bir cümle söyler misin'
+      text: 'kitap oku'
     }
   ]);
   const [inputValue, setInputValue] = useState('');
 
   const handleButtonClick = () => {
-    const newTodos = { key: todos.length + 1, isDone: 0, text: inputValue }
+    const trimmedInputValue = inputValue.trim();
+    const lastKey = todos[todos.length - 1]?.key || 0;
+    const newTodos = { key: lastKey + 1, isDone: 0, text: trimmedInputValue }
     setTodos([...todos, newTodos]);
     setInputValue('');
   };
@@ -34,9 +36,22 @@ const ToDoList = () => {
     setTodos(newTodos);
   };
 
+  const deleteTodo = (key) => () => {
+    const newTodos = todos.filter((todo) => todo.key !== key);
+    setTodos(newTodos);
+  };
+
+  const editTodo = (key) => () => {
+    const newTodos = [...todos];
+    const todo = newTodos.find((todo) => todo.key === key);
+    const newTodoText = prompt('Enter new todo text', todo.text);
+    todo.text = newTodoText;
+    setTodos(newTodos);
+  };
+
   return (
     <Draggable
-      defaultPosition={{ x: 1420, y: -300 }}>
+      defaultPosition={{ x: 820, y: -40 }}>
       <div className="todoMain">
         <h3 className='todoMain__title'>ToDo List</h3>
         <ul className='todoMain__list'>
@@ -49,8 +64,8 @@ const ToDoList = () => {
                 onClick={setTodoIsDone(todo.key)}
               />
               <p className={todo.isDone ? 'todoMain__list__item-done__title' : 'todoMain__list__item__title'}>{todo.text}</p>
-              <FiEdit2 className='todoMain__list__item__edit' />
-              <button><MdDelete className='todoMain__list__item__delete' /></button>
+              <button onClick={editTodo(todo.key)}><FiEdit2 className='todoMain__list__item__edit' /></button>
+              <button onClick={deleteTodo(todo.key)}><MdDelete className='todoMain__list__item__delete' /></button>
             </li>
           ))}
         </ul>

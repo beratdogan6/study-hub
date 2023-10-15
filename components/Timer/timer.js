@@ -103,7 +103,7 @@ class Timer extends Component {
 
     return (
       <Draggable
-        defaultPosition={{ x: 750, y: 300 }}>
+        defaultPosition={{ x: 350, y: -150 }}>
         <div>
           {/* TIMER */}
           <div className={settings ? 'timer2-container-disabled' : 'timer2-container-active'}>

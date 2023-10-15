@@ -27,7 +27,7 @@ function Clock() {
 
   return (
     <Draggable
-      defaultPosition={{ x: 100, y: 750 }}>
+      defaultPosition={{ x: 50, y: 630 }}>
       <section className='text-white w-[400px] h-fit cursor-move'>
         <div>
           <div className='flex justify-between w-full font-medium text-[25px]'>
