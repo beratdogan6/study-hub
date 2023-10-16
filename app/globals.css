@@ -18,3 +18,7 @@
         --background-end-rgb: 0, 0, 0;
     }
 }
+
+.formInput {
+    @apply w-[400px] border border-gray-200 py-2 px-6 bg-zinc-100/40
+}
