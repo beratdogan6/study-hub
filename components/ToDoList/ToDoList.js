@@ -11,7 +11,7 @@ const ToDoList = () => {
     {
       key: 1,
       isDone: 0,
-      text: 'pazara gidip 5kg salatalık al'
+      text: 'pazara gidip 5kg salatalik al'
     },
     {
       key: 2,
