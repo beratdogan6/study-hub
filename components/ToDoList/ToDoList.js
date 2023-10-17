@@ -8,7 +8,7 @@ import { MdDelete } from 'react-icons/md'
 
 const ToDoList = () => {
   const [todos, setTodos] = useState(() => {
-    const savedTodos = window.localStorage.getItem('todos');
+    const savedTodos = localStorage.getItem('todos');
     return savedTodos ? JSON.parse(savedTodos) : [];
   });
   const [inputValue, setInputValue] = useState('');
