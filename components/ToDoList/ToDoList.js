@@ -1,24 +1,16 @@
 "use client";
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './style.css'
 import Draggable from 'react-draggable'
 import { FiEdit2 } from 'react-icons/fi'
 import { MdDelete } from 'react-icons/md'
 
 const ToDoList = () => {
-  const [todos, setTodos] = React.useState([
-    {
-      key: 1,
-      isDone: 0,
-      text: 'pazara gidip 5kg salatalik al'
-    },
-    {
-      key: 2,
-      isDone: 1,
-      text: 'kitap oku'
-    }
-  ]);
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem('todos');
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
   const [inputValue, setInputValue] = useState('');
 
   const handleButtonClick = () => {
@@ -48,6 +40,14 @@ const ToDoList = () => {
     todo.text = newTodoText;
     setTodos(newTodos);
   };
+
+  const saveTodosToLocalStorage = () => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  };
+
+  useEffect(() => {
+    saveTodosToLocalStorage();
+  }, [todos]);
 
   return (
     <Draggable
