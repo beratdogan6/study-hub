@@ -49,7 +49,6 @@ const ToDoList = () => {
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
-  
 
   return (
     <Draggable
