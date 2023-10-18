@@ -18,3 +18,11 @@
         --background-end-rgb: 0, 0, 0;
     }
 }
+
+.deneme {
+    @apply absolute grid place-items-center top-0 left-0 w-full h-screen z-20
+}
+
+.denemeOff {
+    @apply hidden
+}

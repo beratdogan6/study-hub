@@ -1,31 +1,32 @@
 "use client";
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './style.css'
 import Draggable from 'react-draggable'
 import { FiEdit2 } from 'react-icons/fi'
 import { MdDelete } from 'react-icons/md'
 
 const ToDoList = () => {
-  if(!localStorage.getItem('todos')) localStorage.setItem('todos', JSON.stringify([]));
-  const [todos, setTodos] = useState(() => {
-    const storedTodos = localStorage.getItem('todos');
-    return storedTodos ? JSON.parse(storedTodos) : [];
-  });
+  const [todos, setTodos] = useState([
+    {
+      key: 1,
+      isDone: 0,
+      text: 'pazara gidip 5kg salatalık al'
+    },
+    {
+      key: 2,
+      isDone: 1,
+      text: 'kitap oku'
+    }
+  ]);
   const [inputValue, setInputValue] = useState('');
-
-  useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
 
   const handleButtonClick = () => {
     const trimmedInputValue = inputValue.trim();
-    if (trimmedInputValue) {
-      const lastKey = todos[todos.length - 1]?.key || 0;
-      const newTodos = { key: lastKey + 1, isDone: 0, text: trimmedInputValue };
-      setTodos([...todos, newTodos]);
-      setInputValue('');
-    }
+    const lastKey = todos[todos.length - 1]?.key || 0;
+    const newTodos = { key: lastKey + 1, isDone: 0, text: trimmedInputValue }
+    setTodos([...todos, newTodos]);
+    setInputValue('');
   };
 
   const setTodoIsDone = (key) => () => {
@@ -59,7 +60,7 @@ const ToDoList = () => {
               <input
                 type="checkbox"
                 className={todo.isDone ? 'todoMain__list__item-done__checkbox' : 'todoMain__list__item__checkbox'}
-                checked={todo.isDone}
+                checked={todo.isDone ? true : false}
                 onClick={setTodoIsDone(todo.key)}
               />
               <p className={todo.isDone ? 'todoMain__list__item-done__title' : 'todoMain__list__item__title'}>{todo.text}</p>
