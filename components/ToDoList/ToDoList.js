@@ -7,7 +7,8 @@ import { FiEdit2 } from 'react-icons/fi'
 import { MdDelete } from 'react-icons/md'
 
 const ToDoList = () => {
-  const [todos, setTodos] = React.useState(() => {
+  if(!localStorage.getItem('todos')) localStorage.setItem('todos', JSON.stringify([]));
+  const [todos, setTodos] = useState(() => {
     const storedTodos = localStorage.getItem('todos');
     return storedTodos ? JSON.parse(storedTodos) : [];
   });
