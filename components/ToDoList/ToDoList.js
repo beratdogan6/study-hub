@@ -7,18 +7,24 @@ import { FiEdit2 } from 'react-icons/fi'
 import { MdDelete } from 'react-icons/md'
 
 const ToDoList = () => {
-  const [todos, setTodos] = useState(() => {
-    const savedTodos = localStorage.getItem('todos');
-    return savedTodos ? JSON.parse(savedTodos) : [];
+  const [todos, setTodos] = React.useState(() => {
+    const storedTodos = localStorage.getItem('todos');
+    return storedTodos ? JSON.parse(storedTodos) : [];
   });
   const [inputValue, setInputValue] = useState('');
 
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
+
   const handleButtonClick = () => {
     const trimmedInputValue = inputValue.trim();
-    const lastKey = todos[todos.length - 1]?.key || 0;
-    const newTodos = { key: lastKey + 1, isDone: 0, text: trimmedInputValue }
-    setTodos([...todos, newTodos]);
-    setInputValue('');
+    if (trimmedInputValue) {
+      const lastKey = todos[todos.length - 1]?.key || 0;
+      const newTodos = { key: lastKey + 1, isDone: 0, text: trimmedInputValue };
+      setTodos([...todos, newTodos]);
+      setInputValue('');
+    }
   };
 
   const setTodoIsDone = (key) => () => {
@@ -40,14 +46,6 @@ const ToDoList = () => {
     todo.text = newTodoText;
     setTodos(newTodos);
   };
-
-  const saveTodosToLocalStorage = () => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  };
-
-  useEffect(() => {
-    saveTodosToLocalStorage();
-  }, [todos]);
 
   return (
     <Draggable
