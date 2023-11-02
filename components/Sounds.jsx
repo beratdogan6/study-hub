@@ -11,6 +11,7 @@ class MyAudioPlayer extends Component {
 
   componentDidMount() {
     this.audioRef.current.volume = this.state.volume;
+    this.audioRef.current.play();
   }
 
   handleVolumeChange = (e) => {
@@ -25,7 +26,7 @@ class MyAudioPlayer extends Component {
 
     return (
       <div>
-        <audio autoPlay ref={this.audioRef}>
+        <audio className='hidden' controls autoPlay ref={this.audioRef}>
           <source src="/rain.mp3" type="audio/mpeg" />
           Tarayıcınız ses etiketini desteklemiyorsa, bu metni görüntüler.
         </audio>

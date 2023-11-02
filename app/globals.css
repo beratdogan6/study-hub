@@ -35,6 +35,14 @@
     @apply hidden
 }
 
+.volumePopup {
+    @apply w-full h-screen grid place-items-center absolute top-0 left-0 z-20 bg-black bg-opacity-70
+}
+
+.volumePopupOff {
+    @apply hidden
+}
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;

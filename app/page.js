@@ -7,7 +7,7 @@ import ToDoList from '@/components/ToDoList/ToDoList';
 import Background from '@/components/Background';
 import { IoMdSettings } from 'react-icons/io'
 import { AiOutlineTool } from 'react-icons/ai'
-import { MdOutlineWallpaper } from 'react-icons/md'
+import { MdVolumeUp } from 'react-icons/md'
 import Sounds from '@/components/Sounds';
 
 export default function Home() {
@@ -16,6 +16,7 @@ export default function Home() {
   const [clock, setClock] = useState(false);
   const [timer, setTimer] = useState(false);
   const [todo, setTodo] = useState(false);
+  const [volume, setVolume] = useState(false);
 
   useEffect(() => {
     const storedClock = JSON.parse(localStorage.getItem('clock'));
@@ -41,7 +42,10 @@ export default function Home() {
 
   return (
     <main>
+      {/* Background */}
       <Background />
+
+      {/* Tools */}
       <tools className='z-10 absolute'>
         <div className={clock ? 'hidden' : ''}>
           <Clock />
@@ -52,11 +56,12 @@ export default function Home() {
         <div className={timer ? 'hidden' : ''}>
           <Timer />
         </div>
-        <Sounds />
       </tools>
+
+      {/* Settings button */}
       <settings className='absolute top-[3%] right-[2%] z-20'>
         <div className='w-fit'>
-          <button onClick={() => setState(!state)}>
+          <button onClick={() => { setState(!state) }}>
             <IoMdSettings size={50} className='text-[#000] opacity-75' />
           </button>
           <div className={state ? 'flex flex-col items-center mt-5' : 'hidden'}>
@@ -67,12 +72,16 @@ export default function Home() {
                 </button>
               </li>
               <li>
-                <MdOutlineWallpaper size={30} />
+                <button onClick={() => setVolume(!volume)}>
+                  <MdVolumeUp size={30} />
+                </button>
               </li>
             </ul>
           </div>
         </div>
       </settings>
+
+      {/* Popup for tools settings */}
       <popup className={tools ? 'toolsPopup' : 'toolsPopupOff'}>
         <div className='px-10 py-7 rounded-md bg-black bg-opacity-70 flex flex-col gap-3'>
           <div className='flex items-center justify-between gap-10'>
@@ -112,6 +121,20 @@ export default function Home() {
             </label>
           </div>
           <button onClick={() => setTools(!tools)}>
+            <p className='text-white text-lg'>Kapat</p>
+          </button>
+        </div>
+      </popup>
+
+      {/* Popup for volume settings */}
+      <popup className={volume ? 'volumePopup' : 'volumePopupOff'}>
+        <div className='px-10 py-7 rounded-md bg-black bg-opacity-70 flex flex-col gap-3'>
+          <div className='flex items-center justify-between gap-10'>
+            <p className='text-white text-lg'>Yağmur Sesi:</p>
+
+            <Sounds />
+          </div>
+          <button onClick={() => setVolume(!volume)}>
             <p className='text-white text-lg'>Kapat</p>
           </button>
         </div>
