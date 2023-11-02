@@ -8,6 +8,7 @@ import Background from '@/components/Background';
 import { IoMdSettings } from 'react-icons/io'
 import { AiOutlineTool } from 'react-icons/ai'
 import { MdOutlineWallpaper } from 'react-icons/md'
+import Sounds from '@/components/Sounds';
 
 export default function Home() {
   const [state, setState] = useState(false);
@@ -51,6 +52,7 @@ export default function Home() {
         <div className={timer ? 'hidden' : ''}>
           <Timer />
         </div>
+        <Sounds />
       </tools>
       <settings className='absolute top-[3%] right-[2%] z-20'>
         <div className='w-fit'>
