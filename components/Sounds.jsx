@@ -26,10 +26,10 @@ class MyAudioPlayer extends Component {
 
     return (
       <div>
-        <audio className='hidden' controls autoPlay ref={this.audioRef}>
+        <video className='hidden' controls autoPlay ref={this.audioRef}>
           <source src="/rain.mp3" type="audio/mpeg" />
           Tarayıcınız ses etiketini desteklemiyorsa, bu metni görüntüler.
-        </audio>
+        </video>
         <input
           type="range"
           min="0"
