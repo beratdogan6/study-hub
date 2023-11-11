@@ -17,7 +17,7 @@ function App() {
 
 
 
-    await axios.get("http://api.weatherapi.com/v1/current.json", {
+    await axios.get("https://api.weatherapi.com/v1/current.json", {
       params: {
         key: "2d6e362847bb4b82b65220712231111",
         q: `${lat},${long}`
