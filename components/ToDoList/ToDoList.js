@@ -40,12 +40,12 @@ const ToDoList = () => {
 
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem('todos'));
-    
+
     if (storedTodos) {
       setTodos(storedTodos);
     }
   }, []);
-  
+
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
