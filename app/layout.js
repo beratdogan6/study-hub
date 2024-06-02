@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
       <head>
         <title>Next.js</title>
       </head>
-      <body className='font-poppins'>
+      <body className='font-poppins overflow-hidden'>
         {children}
         <SpeedInsights />
         <Analytics />
