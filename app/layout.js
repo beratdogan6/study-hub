@@ -13,9 +13,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SpeedInsights />
         <div className='font-poppins'>
           {children}
+          <SpeedInsights />
         </div>
       </body>
     </html>
